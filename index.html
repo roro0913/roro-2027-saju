@@ -383,12 +383,12 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
 .tab-wrap{position:sticky;top:0;z-index:25;margin:4px -18px 0;padding:9px 18px 10px;
   background:linear-gradient(180deg,rgba(14,18,38,.97) 0%, rgba(14,18,38,.90) 68%, rgba(14,18,38,0) 100%);
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.ftabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:1px 1px 3px}
+.ftabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:1px 1px 3px}
 .ftabs::-webkit-scrollbar{display:none}
-.ftab{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--gold-line-soft);
-  background:rgba(255,255,255,.035);color:var(--muted);font-family:inherit;font-size:12.5px;font-weight:700;
-  padding:8px 11px;border-radius:99px;cursor:pointer;transition:all .18s ease;white-space:nowrap}
-.ftab span{font-size:13px;line-height:1}
+.ftab{flex:0 0 auto;display:inline-flex;align-items:center;gap:3.5px;border:1px solid var(--gold-line-soft);
+  background:rgba(255,255,255,.035);color:var(--muted);font-family:inherit;font-size:11.8px;font-weight:700;
+  padding:7px 8px;border-radius:99px;cursor:pointer;transition:all .18s ease;white-space:nowrap;letter-spacing:-.02em}
+.ftab span{font-size:12px;line-height:1}
 .ftab:active{transform:scale(.97)}
 .ftab[aria-selected="true"]{background:linear-gradient(180deg,#FBEFD0,#EDCB86 55%,#DCB063);color:#2A1E0A;
   border-color:rgba(245,215,142,.85);box-shadow:0 8px 18px -12px rgba(232,193,112,.9), inset 0 1px 0 rgba(255,255,255,.5)}
@@ -1537,7 +1537,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     const p = state.p.jp;
     $('#jp-head').innerHTML = `2027년, 당신의 本命星은<br><em>${p.star.jp}</em>`;
     $('#jp-badges').innerHTML = [
-      `<span class="badge red">본명성 · ${p.star.hanja} ${p.star.elem}</span>`,
+      `<span class="badge red">본명성 · ${p.star.jp}</span>`,
       `<span class="badge">${state.birth.replace(/-/g, '.')} ${state.cal}</span>`,
       `<span class="badge gold">九星気学 · 구성학</span>`
     ].join('');
@@ -1551,7 +1551,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
       <p class="muted" style="margin:12px 0 0">${p.star.p}</p>
       <div class="change">
         <div class="row"><span class="y">2027</span><span class="arrow">──▶</span><span class="k">${p.k2027}</span></div>
-        <p>${p.m2027.t}. ${p.m2027.d.replace(/^2027년은\s*/, '')}</p>
+        <p>${p.m2027.d}</p>
       </div>`;
 
     $('#jp-body').innerHTML = `
@@ -1823,11 +1823,16 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     $('#mc-mode').textContent = s.tag;
     $('#mc-kw').textContent = s.kw;
     if (scroll){
-      const wrap = $('#tab-wrap');
-      const y = wrap.getBoundingClientRect().top + window.scrollY - 6;
-      if (window.scrollY > y + 4) window.scrollTo({ top: y, behavior:'smooth' });
+      const pane = $('#pane-' + tab), wrap = $('#tab-wrap');
+      const barH = wrap.offsetHeight;
+      const y = pane.getBoundingClientRect().top + window.scrollY - barH - 6;
+      if (window.scrollY > y + 4) window.scrollTo({ top: Math.max(0, y), behavior:'smooth' });
       const btn = $('#tab-' + tab);
-      if (btn && btn.scrollIntoView) btn.scrollIntoView({ block:'nearest', inline:'center', behavior:'smooth' });
+      if (btn){
+        const box = $('#ftabs');
+        const left = btn.offsetLeft - (box.clientWidth - btn.offsetWidth) / 2;
+        box.scrollTo({ left: Math.max(0, left), behavior:'smooth' });
+      }
     }
   }
 
