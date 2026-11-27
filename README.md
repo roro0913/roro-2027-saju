@@ -17,16 +17,19 @@ https://roro0913.github.io/roro-2027-saju/
 
 ## 후원 링크 넣는 곳
 
-`index.html` 안의 `SUPPORT_LINKS` 객체에 토스·카카오페이 링크를 넣으면
-후원 시트의 "후원 링크로 이동하기" 버튼이 그 주소로 연결됩니다.
-비워 두면 "준비 중" 안내가 나오고 나머지 기능은 그대로 동작합니다.
+`index.html` 안의 `SUPPORT_LINKS` 객체에 후원 링크를 넣으면
+후원 시트의 "카카오페이로 후원하기" 버튼이 그 주소로 연결됩니다.
+지금은 카카오페이 QR 송금 링크 하나(`KAKAOPAY_LINK`)를 네 단계에 모두 연결해 두었고,
+보내는 사람이 송금 화면에서 금액을 직접 입력합니다.
+링크를 비워 두면 "준비 중" 안내가 나오고 나머지 기능은 그대로 동작합니다.
 
 ```js
+const KAKAOPAY_LINK = 'https://qr.kakaopay.com/FKtd5i3WS';
 const SUPPORT_LINKS = {
-  cookie: '',   // 1,000원 · 로로 붕어빵
-  coffee: '',   // 5,000원 · 로로 아아 한 잔
-  cake:   '',   // 10,000원 · 로로 당 충전 케이크
-  bag:    ''    // 30,000원 · 로로 새 가방 보태기
+  cookie: KAKAOPAY_LINK,   // 1,000원 · 로로 붕어빵
+  coffee: KAKAOPAY_LINK,   // 5,000원 · 로로 아아 한 잔
+  cake:   KAKAOPAY_LINK,   // 10,000원 · 로로 당 충전 케이크
+  bag:    KAKAOPAY_LINK    // 30,000원 · 로로 새 가방 보태기
 };
 ```
 

@@ -695,9 +695,9 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     <div class="sup-msg" id="sup-msg"></div>
     <div class="sup-line" id="sup-line"></div>
     <a class="cta sup-link" id="sup-link" href="#" target="_blank" rel="noopener noreferrer" hidden>후원 링크로 이동하기 💛</a>
-    <div class="sup-hint" id="sup-hint">
-      <b>로로가 후원 링크를 준비하고 있어요</b>
-      <span>지금은 응원의 마음만 보내 주세요. 링크가 열리면 이 자리에서 바로 연결돼요.</span>
+    <div class="sup-hint" id="sup-hint" hidden>
+      <b id="sup-hint-b">카카오페이 송금 화면이 열리면 1,000원을 입력해 주세요</b>
+      <span id="sup-hint-s">금액은 직접 입력하는 링크예요. 보내 주신 마음은 로로에게 그대로 전해져요.</span>
     </div>
     <button class="sup-heart" id="sup-heart" type="button">응원의 마음만 보내기 💛</button>
     <button class="sup-close" id="sup-close" type="button">닫기</button>
@@ -714,17 +714,19 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
   /* =========================================================
      후원 링크 설정 (SUPPORT_LINKS)
      ---------------------------------------------------------
-     토스·카카오페이 후원 링크를 아래 따옴표 안에 넣으면
+     카카오페이 송금 링크를 아래 따옴표 안에 넣으면
      후원 시트의 버튼이 그 링크로 바로 연결됩니다.
+     지금은 금액을 직접 입력하는 카카오페이 QR 송금 링크 하나를
+     네 단계에 모두 연결해 두었습니다.
      비워 두면 "준비 중" 안내가 부드럽게 나오고,
      나머지 기능은 아무것도 깨지지 않습니다.
-     예) cookie: 'https://toss.me/roro/1000'
   ========================================================= */
+  const KAKAOPAY_LINK = 'https://qr.kakaopay.com/FKtd5i3WS';
   const SUPPORT_LINKS = {
-    cookie: '',   /* 1,000원 · 로로 붕어빵 */
-    coffee: '',   /* 5,000원 · 로로 아아 한 잔 */
-    cake:   '',   /* 10,000원 · 로로 당 충전 케이크 */
-    bag:    ''    /* 30,000원 · 로로 새 가방 보태기 */
+    cookie: KAKAOPAY_LINK,   /* 1,000원 · 로로 붕어빵 */
+    coffee: KAKAOPAY_LINK,   /* 5,000원 · 로로 아아 한 잔 */
+    cake:   KAKAOPAY_LINK,   /* 10,000원 · 로로 당 충전 케이크 */
+    bag:    KAKAOPAY_LINK    /* 30,000원 · 로로 새 가방 보태기 */
   };
 
   const SUPPORT_TIERS = {
@@ -2028,13 +2030,21 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     $('#sup-tier').textContent = `${t.emoji} ${t.tag}`;
 
     const a = $('#sup-link');
+    const hint = $('#sup-hint');
+    const isKakao = /(^|\.)kakaopay\.com/i.test(link);
     if (ok){
       a.href = link;
       a.hidden = false;
-      $('#sup-hint').hidden = true;
+      a.textContent = isKakao ? '카카오페이로 후원하기 💛' : '후원 링크로 이동하기 💛';
+      $('#sup-hint-b').textContent = `카카오페이 송금 화면이 열리면 ${t.price}을 입력해 주세요`;
+      $('#sup-hint-s').textContent = '금액은 직접 입력하는 링크예요. 보내 주신 마음은 로로에게 그대로 전해져요.';
+      hint.hidden = false;
     } else {
       a.hidden = true;
-      $('#sup-hint').hidden = false;
+      a.textContent = '후원 링크로 이동하기 💛';
+      $('#sup-hint-b').textContent = '로로가 후원 링크를 준비하고 있어요';
+      $('#sup-hint-s').textContent = '지금은 응원의 마음만 보내 주세요. 링크가 열리면 이 자리에서 바로 연결돼요.';
+      hint.hidden = false;
     }
     supBackdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -2073,7 +2083,6 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     show('screen-input');
   });
 })();
-
 </script>
 </body>
 </html>
