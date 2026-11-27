@@ -432,6 +432,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
 
 /* 입력화면 칩 */
 .fchips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.cal-note{margin-top:7px;font-size:10.5px;color:var(--coral-soft);line-height:1.5}
 .fchips span{font-size:10.5px;font-weight:700;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:99px;padding:4px 9px}
 </style>
 </head>
@@ -489,6 +490,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
           <button type="button" data-cal="양력" aria-pressed="true">양력</button>
           <button type="button" data-cal="음력" aria-pressed="false">음력</button>
         </div>
+        <div class="cal-note" id="cal-note" hidden>음력 생일은 양력 날짜로 바꿔 넣으면 네 가지 운세가 모두 더 정확해요.</div>
       </div>
 
       <div class="field">
@@ -1821,6 +1823,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
       $$('#seg-cal button').forEach(x => x.setAttribute('aria-pressed', 'false'));
       b.setAttribute('aria-pressed', 'true');
       state.cal = b.dataset.cal;
+      $('#cal-note').hidden = state.cal !== '음력';
     });
   });
   $$('#seg-gender button').forEach(b => {
