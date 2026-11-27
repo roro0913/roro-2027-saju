@@ -355,7 +355,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
 .omi-seal{width:56px;height:56px;border-radius:50%;border:2px solid rgba(232,131,107,.66);color:#F0A08F;
   font-family:var(--serif);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;
   margin:0 auto;transform:rotate(-7deg);letter-spacing:.02em;background:rgba(232,131,107,.06)}
-.omi-seal.small{width:44px;height:44px;font-size:12px;margin:0;transform:rotate(-7deg);letter-spacing:0;line-height:1.15}
+.omi-seal.small{width:44px;height:44px;font-size:20px;margin:0;transform:rotate(-7deg);letter-spacing:0;line-height:1}
 .omi-cover-t{font-family:var(--serif);font-size:16px;color:var(--ivory);margin-top:14px;line-height:1.5}
 .omi-cover-s{font-size:11.5px;color:var(--faint);margin-top:5px}
 .omi-body{animation:paneIn .45s both;text-align:center;border:1px dashed rgba(232,193,112,.34);border-radius:16px;
@@ -1516,7 +1516,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
             <button class="btn-soft gold" id="btn-omi" style="margin-top:14px;padding:11px 22px">🎋 오미쿠지 펼치기</button>
           </div>
           <div class="omi-body">
-            <div class="omi-top"><span class="omi-seal small">御籤</span><span class="omi-year">二〇二七</span></div>
+            <div class="omi-top"><span class="omi-seal small">籤</span><span class="omi-year">二〇二七</span></div>
             <div class="omi-rank">${p.omi.rank}</div>
             <div class="omi-head">${p.omi.head}</div>
             <div class="omi-rows">
@@ -1862,7 +1862,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     '3 / 4 · 본명성과 오미쿠지',
     '4 / 4 · 수호동물과 별자리'
   ];
-  const LOAD_SUBS = ['명궁을 세우고 있어요', '九星気学을 펼치는 중이에요', '수호동물을 부르고 있어요', '마지막 별을 놓는 중이에요'];
+  const LOAD_SUBS = ['명궁을 세우고 있어요', '九星気学을 펼치는 중이에요', '오미쿠지를 뽑고 있어요', '수호동물과 별자리를 놓는 중이에요'];
 
   function startLoading(){
     show('screen-loading');
@@ -1875,7 +1875,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     const t1 = setInterval(() => {
       pct = Math.min(100, pct + 5 + Math.random() * 11);
       bar.style.width = pct + '%';
-      const ni = Math.min(3, Math.floor(pct / 26));
+      const ni = Math.min(3, Math.floor(pct / 30));
       if (ni !== i){ i = ni; sub.textContent = LOAD_SUBS[i]; steps.textContent = LOAD_STEPS[i]; }
       if (pct >= 100) clearInterval(t1);
     }, 200);
