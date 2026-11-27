@@ -242,39 +242,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
 .legend span{display:inline-flex;align-items:center;gap:5px}
 .legend i{width:7px;height:7px;border-radius:99px;display:inline-block}
 
-/* locked teaser */
-.locked-zone{margin-top:14px;position:relative;border-radius:18px;padding:2px}
-.locked-zone .blurred{filter:blur(5.5px);opacity:.55;pointer-events:none;user-select:none}
-.lock-veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:6px;border-radius:18px;background:linear-gradient(180deg,rgba(16,21,44,.55),rgba(13,17,36,.88));
-  border:1px solid var(--gold-line);backdrop-filter:blur(1.5px);text-align:center;padding:12px}
-.lock-veil .lock-ico{width:34px;height:34px;border-radius:50%;background:rgba(35,43,84,.9);border:1px solid rgba(232,193,112,.4);
-  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -14px rgba(0,0,0,.95), 0 0 16px rgba(232,193,112,.18)}
-.lock-veil .lv-t{font-size:12.5px;font-weight:800;color:var(--gold-bright)}
-.lock-veil .lv-s{font-size:10.5px;color:var(--muted)}
-.teaser-row{display:flex;align-items:center;justify-content:space-between;padding:11px 2px;border-bottom:1px dashed var(--line)}
-.teaser-row:last-child{border-bottom:0}
-.teaser-row .tl{font-size:12.5px;font-weight:700;color:var(--ivory)}
-.teaser-row .tv{font-family:var(--serif);font-size:15px;color:var(--gold-bright);font-weight:700}
-.teaser-paras{margin-top:6px;display:grid;gap:7px}
-.teaser-paras i{display:block;height:9px;border-radius:99px;background:rgba(255,255,255,.10)}
-.teaser-paras i:nth-child(2n){width:88%}
-.teaser-paras i:nth-child(3n){width:74%}
-
-/* CTA bar */
-.cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 18px calc(12px + env(safe-area-inset-bottom));
-  background:linear-gradient(180deg,rgba(14,18,38,0) 0%, rgba(14,18,38,.90) 40%, #0E1226 76%);
-  display:none}
-.cta-bar.show{display:block;animation:riseIn .45s cubic-bezier(.22,.61,.36,1) both}
-@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.cta-bar .inner{max-width:480px;margin:0 auto}
-.cta-bar .cta{margin-top:0;padding:15px 16px;font-size:15.5px}
-.price-tag{display:inline-flex;align-items:baseline;gap:2px;background:rgba(42,30,10,.13);border-radius:8px;padding:1px 7px;font-size:13.5px;margin-left:6px;color:#2A1E0A}
-.count-note{text-align:center;font-size:10.5px;color:var(--faint);margin-top:6px}
-.count-note b{color:var(--gold)}
-
 /* paid content */
-.paid{padding-top:6px}
 .paid-head{display:flex;align-items:center;gap:8px;margin:22px 2px 10px}
 .paid-head h3{font-size:16.5px;color:var(--ivory)}
 .paid-head .tag{font-size:10px;font-weight:800;letter-spacing:.06em;color:#2A1E0A;background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-radius:6px;padding:2px 6px}
@@ -313,19 +281,6 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
   font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .mistake b{font-size:13px;display:block;color:var(--ivory)}
 .mistake span{font-size:11.5px;color:var(--muted)}
-.upsell{margin-top:16px;border-radius:22px;padding:19px 18px;position:relative;overflow:hidden;
-  background:linear-gradient(150deg,#1C2452 0%, #262A5C 48%, #3B2A48 100%);color:#FBF1DC;border:1px solid rgba(232,193,112,.42);
-  box-shadow:0 28px 44px -30px rgba(0,0,0,.95), 0 0 30px -14px rgba(232,193,112,.35)}
-.upsell::before{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;
-  background:radial-gradient(circle,rgba(232,193,112,.30),transparent 70%)}
-.upsell .u-eyebrow{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:800}
-.upsell h3{font-size:19px;margin:7px 0 6px;color:#FFF8EC;line-height:1.35}
-.upsell p{margin:0;font-size:12px;color:rgba(245,240,230,.76);line-height:1.6}
-.upsell .u-price{display:flex;align-items:baseline;gap:6px;margin-top:13px}
-.upsell .u-price b{font-family:var(--serif);font-size:23px;color:#FFF8EC}
-.upsell .u-price s{font-size:11.5px;color:rgba(245,240,230,.45)}
-.upsell button{margin-top:12px;width:100%;border:1px solid rgba(232,193,112,.55);background:rgba(232,193,112,.14);
-  color:var(--gold-bright);border-radius:13px;padding:12px;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer}
 .result-foot{margin:22px 0 10px;text-align:center;font-size:10.5px;color:var(--faint);line-height:1.7}
 .unlock-flash{animation:flash .9s ease}
 @keyframes flash{0%{box-shadow:0 0 0 0 rgba(232,193,112,.55)}100%{box-shadow:0 0 0 22px rgba(232,193,112,0)}}
@@ -341,29 +296,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
 .sheet-backdrop.open .sheet{transform:none}
 .sheet .handle{width:38px;height:4px;border-radius:99px;background:rgba(232,193,112,.34);margin:0 auto 14px}
 .sheet h3{font-size:18px;color:var(--ivory)}
-.sheet .prod{display:flex;gap:11px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:12px}
-.sheet .prod img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
-.sheet .prod .pn{font-size:12.5px;font-weight:700;line-height:1.45;color:var(--ivory)}
-.sheet .prod .ps{font-size:11px;color:var(--faint)}
-.sheet .price{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:13px;border-top:1px dashed var(--line)}
-.sheet .price span{font-size:12.5px;color:var(--muted)}
-.sheet .price b{font-family:var(--serif);font-size:22px;color:var(--gold-bright)}
-.pays{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.pays button{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:12px;padding:10px 4px;font-family:inherit;
-  font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
-.pays button .pi{font-size:15px}
-.pays button[aria-pressed="true"]{border-color:rgba(232,193,112,.62);color:var(--gold-bright);background:rgba(232,193,112,.13);box-shadow:0 0 0 2px rgba(232,193,112,.10)}
-.sheet .notice{font-size:10.5px;color:var(--faint);margin-top:11px;line-height:1.6;text-align:center}
 .sheet .cta{margin-top:12px}
-.sheet .cancel{display:block;width:100%;background:none;border:0;font-family:inherit;font-size:12px;color:var(--faint);margin-top:9px;cursor:pointer;padding:6px}
-.pay-done{text-align:center;padding:18px 0 6px;display:none}
-.pay-done.show{display:block;animation:screenIn .4s both}
-.pay-done .ok{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));color:#2A1E0A;font-size:26px;font-weight:800;
-  box-shadow:0 16px 28px -16px rgba(232,193,112,.9), inset 0 1px 0 rgba(255,255,255,.5)}
-.pay-done b{font-family:var(--serif);font-size:17px;color:var(--ivory)}
-.pay-done p{font-size:12px;color:var(--muted);margin:5px 0 0}
-
 .toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,14px);background:rgba(24,30,61,.96);color:var(--ivory);
   border:1px solid var(--gold-line);box-shadow:0 18px 34px -18px rgba(0,0,0,.95);
   font-size:12.5px;font-weight:600;padding:11px 16px;border-radius:99px;z-index:80;opacity:0;pointer-events:none;transition:all .32s;max-width:86vw;text-align:center}
@@ -1583,7 +1516,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
             <button class="btn-soft gold" id="btn-omi" style="margin-top:14px;padding:11px 22px">🎋 오미쿠지 펼치기</button>
           </div>
           <div class="omi-body">
-            <div class="omi-top"><span class="omi-seal small">御神籤</span><span class="omi-year">二〇二七</span></div>
+            <div class="omi-top"><span class="omi-seal small">御籤</span><span class="omi-year">二〇二七</span></div>
             <div class="omi-rank">${p.omi.rank}</div>
             <div class="omi-head">${p.omi.head}</div>
             <div class="omi-rows">
@@ -1722,7 +1655,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
       </div>
 
       <div class="card">
-        <div class="card-title"><span class="dot"></span>럭키 아이템</div>
+        <div class="card-title"><span class="dot"></span>럭키 아이템 · 궁합</div>
         <div class="kv-grid">
           <div class="kv"><div class="k">럭키 아이템</div><div class="v">${z.item}</div></div>
           <div class="kv"><div class="k">럭키 컬러</div><div class="v">${z.color}</div></div>
@@ -1940,12 +1873,12 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     bar.style.width = '0%';
     sub.textContent = LOAD_SUBS[0]; steps.textContent = LOAD_STEPS[0];
     const t1 = setInterval(() => {
-      pct = Math.min(100, pct + 8 + Math.random() * 14);
+      pct = Math.min(100, pct + 5 + Math.random() * 11);
       bar.style.width = pct + '%';
       const ni = Math.min(3, Math.floor(pct / 26));
       if (ni !== i){ i = ni; sub.textContent = LOAD_SUBS[i]; steps.textContent = LOAD_STEPS[i]; }
       if (pct >= 100) clearInterval(t1);
-    }, 190);
+    }, 200);
 
     setTimeout(() => {
       clearInterval(t1);
