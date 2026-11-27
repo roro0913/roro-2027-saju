@@ -863,7 +863,9 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     {t:'지출을 조심할 달', a:'충동구매와 보증·대출 요청을 특히 조심하세요.'},
     {t:'말을 아낄 달', a:'감정이 상한 말은 하루 묵혔다가 전하세요. 그 하루가 관계를 지켜요.'},
     {t:'몸을 살피는 달', a:'잠과 식사를 먼저 챙기세요. 컨디션이 판단을 좌우하는 달이에요.'},
-    {t:'돈이 나가는 달', a:'고정지출을 점검하고 구독 하나를 정리해 두면 한 달이 가벼워져요.'}
+    {t:'돈이 나가는 달', a:'고정지출을 점검하고 구독 하나를 정리해 두면 한 달이 가벼워져요.'},
+    {t:'관계의 온도를 낮출 달', a:'서운한 마음이 말로 튀어나오기 쉬워요. 약속을 줄이고 혼자 있는 시간을 확보하세요.'},
+    {t:'큰 결정을 미룰 달', a:'계약·이사·투자는 다음 달로 넘기세요. 지금 내린 결정은 나중에 손봐야 할 수 있어요.'}
   ];
 
   const AREAS = {
@@ -1379,7 +1381,10 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
       o.band = band; o.title = p.t; o.advice = p.a;
       if (i === peakIdx){ o.title = '한 해의 정점 · 재물이 트이는 달'; o.advice = '연봉·단가·정산처럼 돈이 오가는 이야기를 이 달에 꺼내면 가장 잘 풀려요.'; }
       if (i === careerIdx){ o.title = '커리어가 움직이는 달'; o.advice = '이직·승진·새 프로젝트 제안을 이 달에 던지세요. 반응이 가장 빠른 달이에요.'; }
-      if (i === worstIdx) o.title = '가장 조심할 달 · 지키는 게 이득';
+      if (i === worstIdx){
+        o.title = '가장 조심할 달 · 지키는 게 이득';
+        o.advice = '벌이기보다 지키는 달이에요. 새 계약·큰 지출·감정적인 연락을 다음 달로 미루면 이 달은 조용히 지나갑니다.';
+      }
     });
 
     const areaScores = { 재물: 52 + Math.round(rnd() * 42), 커리어: 52 + Math.round(rnd() * 42), 연애: 48 + Math.round(rnd() * 44), 건강: 55 + Math.round(rnd() * 38) };
