@@ -24,6 +24,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none !important}
 html,body{margin:0;padding:0}
 html{background:#0E1226}
 body{
@@ -2083,7 +2084,7 @@ svg.wave{width:100%;height:auto;display:block;overflow:visible}
     $('#sup-price').textContent = t.price;
     $('#sup-msg').textContent = t.msg;
     $('#sup-line').textContent = t.line;
-    $('#sup-tier').textContent = `${t.emoji} ${t.tag} · ${t.price}`;
+    $('#sup-tier').textContent = `${t.emoji} ${t.tag} · 자발적 응원`;
 
     const a = $('#sup-link');
     if (ok){
